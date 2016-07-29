@@ -5,7 +5,7 @@ class CreateComments < ActiveRecord::Migration[5.0]
       t.string :author
       t.string :title
       t.string :body
-      t.date :published_at
+      t.datetime :published_at
 
       t.timestamps
     end
