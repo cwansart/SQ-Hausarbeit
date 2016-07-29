@@ -28,8 +28,8 @@ class CommentsController < ApplicationController
 
     respond_to do |format|
       if @comment.save
-        format.html { redirect_to @comment, notice: 'Comment was successfully created.' }
-        format.json { render :show, status: :created, location: @comment }
+        format.html { redirect_to @comment.post, notice: 'Comment was successfully created.' }
+        format.json { render :show, status: :created, location: @comment.post }
       else
         format.html { render :new }
         format.json { render json: @comment.errors, status: :unprocessable_entity }
@@ -42,8 +42,9 @@ class CommentsController < ApplicationController
   def update
     respond_to do |format|
       if @comment.update(comment_params)
-        format.html { redirect_to @comment, notice: 'Comment was successfully updated.' }
-        format.json { render :show, status: :ok, location: @comment }
+        post = @comment.post
+        format.html { redirect_to post, notice: 'Comment was successfully updated.' }
+        format.json { render :show, status: :ok, location: post }
       else
         format.html { render :edit }
         format.json { render json: @comment.errors, status: :unprocessable_entity }
@@ -69,6 +70,6 @@ class CommentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def comment_params
-      params.require(:comment).permit(:author, :title, :body, :published_at)
+      params.require(:comment).permit(:author, :title, :body, :published_at, :post_id)
     end
 end
