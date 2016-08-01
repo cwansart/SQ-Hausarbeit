@@ -57,10 +57,10 @@ class CommentsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  #test "should update comment" do
-  #  patch comment_url(@comment), params: { comment: { author: @comment.author, body: @comment.body, published_at: @comment.published_at, title: @comment.title } }
-  #  assert_redirected_to comment_url(@comment)
-  #end
+  test "should update comment" do
+    patch comment_url(@comment), params: { comment: { post_id: @comment.post.id, author: @comment.author, body: @comment.body, published_at: @comment.published_at, title: @comment.title } }
+    assert_redirected_to post_url(@comment.post)
+  end
 
   test "should destroy comment" do
     assert_difference('Comment.count', -1) do
