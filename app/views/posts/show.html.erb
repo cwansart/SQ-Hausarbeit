@@ -2,15 +2,26 @@
 
 <h1>Title: <%= @post.title %></h1>
 
-<p>
-  <strong>Body:</strong>
-  <%= @post.body %>
-</p>
+<table>
+  <thead>
+    <tr>
+      <th>Author</th>
+      <th>Body</th>
+      <th>Published at</th>
+    </tr>
+  </thead>
 
-<p>
-  <strong>Published at:</strong>
-  <%= @post.published_at %>
-</p>
+  <tbody>
+  <tr>
+    <td><%= @post.author %></td>
+    <td><%= @post.body %></td>
+    <td><%= @post.published_at %></td>
+  </tr>
+  </tbody>
+</table>
+
+<%= link_to 'Edit', edit_post_path(@post) %> |
+<%= link_to 'Back', posts_path %>
 
 <h1>Comments</h1>
 
@@ -26,27 +37,27 @@
   </tr>
   </thead>
 
-  <tbody>
-    <% @post.comments.each do |comment| %>
-        <tr>
-          <td><%= comment.author %></td>
-          <td><%= comment.title %></td>
-          <td><%= comment.body %></td>
-          <td><%= comment.published_at %></td>
-          <td><%= link_to 'Show', comment %></td>
-          <td><%= link_to 'Edit', edit_comment_path(comment) %></td>
-          <td><%= link_to 'Destroy', comment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        </tr>
-    <% end %>
-  </tbody>
-</table>
+  <% @post.comments.each do |comment| %>
+      <tbody>
+            <tr>
+              <td><%= comment.author %></td>
+              <td><%= comment.title %></td>
+              <td><%= comment.body %></td>
+              <td><%= comment.published_at %></td>
+            </tr>
+      </tbody>
+    </table>
+    <%= link_to 'Show', comment %>
+    <%= link_to 'Edit', edit_comment_path(comment) %>
+    <%= link_to 'Destroy', comment, method: :delete, data: { confirm: 'Are you sure?' } %>
+  <% end %>
+
 <% else %>
-    <p>No comments</p>
+    No comments
 <% end %>
 
-<h1>New Comment</h1>
+<h3>New Comment ...</h3>
 
 <%= render 'comments/form', comment: @comment %>
 
-<%= link_to 'Edit', edit_post_path(@post) %> |
-<%= link_to 'Back', posts_path %>
+
