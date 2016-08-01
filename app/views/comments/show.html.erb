@@ -1,13 +1,10 @@
 <p id="notice"><%= notice %></p>
 
+<h1><%= @comment.title %></h1>
+
 <p>
   <strong>Author:</strong>
   <%= @comment.author %>
-</p>
-
-<p>
-  <strong>Title:</strong>
-  <%= @comment.title %>
 </p>
 
 <p>
@@ -21,4 +18,6 @@
 </p>
 
 <%= link_to 'Edit', edit_comment_path(@comment) %> |
-<%= link_to 'Back', comments_path %>
+<%= link_to 'All comments', comments_path %> |
+<%= link_to 'Back', post_path(@comment.post) %>
+
