@@ -1,11 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
+  author: Karl
   title: MyString
   body: MyText
   published_at: 2016-07-29
 
 two:
+  author: Frank
   title: MyString
   body: MyText
   published_at: 2016-07-29
