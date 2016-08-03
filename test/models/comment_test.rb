@@ -30,4 +30,9 @@ class CommentTest < ActiveSupport::TestCase
     comment = Comment.new(author: "Karl", body: "Lorem Ipsum", title: "My Title", post_id: posts(:one).id)
     assert_not comment.save
   end
+
+  test "should save comment" do
+    comment = Comment.new(author: "Karl", title: "Hello World", body: "Lorem Ipsum", published_at: DateTime.now, post_id: posts(:one).id)
+    assert comment.save
+  end
 end
