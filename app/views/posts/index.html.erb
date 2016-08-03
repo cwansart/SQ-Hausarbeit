@@ -2,6 +2,7 @@
 
 <h1>Posts</h1>
 
+<% unless @post.comments.empty? %>
 <table>
   <thead>
     <tr>
@@ -27,6 +28,10 @@
     <% end %>
   </tbody>
 </table>
+
+<% else %>
+    No posts
+<% end %>
 
 <br>
 
