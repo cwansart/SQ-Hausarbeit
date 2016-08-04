@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe "posts/edit", type: :view do
   before(:each) do
-    @post = assign(:post, Post.create!())
+    @post = assign(:post, Post.create!(title: 'Titel', author: 'Author', body: 'blubb', published_at: DateTime.now))
   end
 
   it "renders the edit post form" do

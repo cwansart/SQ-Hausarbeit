@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe "posts/new", type: :view do
   before(:each) do
-    assign(:post, Post.new())
+    assign(:post, Post.new(title: 'Titel', author: 'Author', body: 'blubb', published_at: DateTime.now))
   end
 
   it "renders new post form" do

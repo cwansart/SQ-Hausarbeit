@@ -42,6 +42,11 @@ RSpec.describe PostsController, type: :controller do
       get :index, params: {}, session: valid_session
       expect(assigns(:posts)).to eq([post])
     end
+
+    it "renders the index template" do
+      get :index
+      expect(response).to render_template("index")
+    end
   end
 
   describe "GET #show" do
