@@ -2,7 +2,8 @@ require 'rails_helper'
 
 RSpec.describe "comments/show", type: :view do
   before(:each) do
-    @comment = assign(:comment, Comment.create!())
+    @post = assign(:post, Post.create!(title: 'Titel', author: 'Author', body: 'blubb', published_at: DateTime.now))
+    @comment = assign(:comment, Comment.create!(post_id: @post.id, title: 'Mein Titel', author: 'Karl', body: 'Lorem Ipsum', published_at: DateTime.now))
   end
 
   it "renders attributes in <p>" do

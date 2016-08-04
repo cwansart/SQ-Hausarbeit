@@ -51,7 +51,6 @@ RSpec.describe CommentsController, type: :controller do
       expect(assigns(:comment)).to eq(comment)
     end
   end
-
   describe "GET #new" do
     it "assigns a new comment as @comment" do
       get :new, params: {}, session: valid_session
