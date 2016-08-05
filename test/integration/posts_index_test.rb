@@ -10,6 +10,11 @@ class PostsIndexTest < ActionDispatch::IntegrationTest
     assert_select "table"
   end
 
+  test "if there is a posts table" do
+    get "/"
+    assert_select "table"
+  end
+
   test "if comment is displayed" do
     get comments_url
     assert_select "td", @comment.author
