@@ -11,13 +11,5 @@ RSpec.describe "Comments", type: :request do
       get comments_path
       expect(response).to have_http_status(200)
     end
-
-    it "Expects a comment to be displayed" do
-      get comments_path
-      expect(response).to has_content(@comment.author)
-      expect(response).to has_content(@comment.title)
-      expect(response).to has_content(@comment.body)
-
-    end
   end
 end
