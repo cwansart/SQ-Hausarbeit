@@ -29,12 +29,8 @@ Feature: posts show
     Then I should see the text "CommAuthor"
     Then I should see the text "CommBody"
 
-#  Scenario: when delete a post
-#    Given I created a post with the title "Test", author "Testauthor" and body "Testbody"
-#    When I browse "/posts" and click on "Destroy"
-#    Then I should see the text "Comment was successfully destroyed."
-
-  Scenario: when delete a comment
+  Scenario: when delete a post
     Given I created a post with the title "Test", author "Testauthor" and body "Testbody"
-    When I browse "/posts/1" and click on "Destroy"
-    Then I should see the text "Post was successfully destroyed."
+    When I browse "/posts" and click on "Destroy"
+    Then I should see the text "Comment was successfully destroyed."
+
