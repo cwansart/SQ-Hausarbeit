@@ -142,7 +142,7 @@ RSpec.describe CommentsController, type: :controller do
       comment = Comment.create! valid_attributes
       post = comment.post
       delete :destroy, params: {id: comment.to_param}, session: valid_session
-      expect(response).to redirect_to(posts_url(post))
+      expect(response).to redirect_to(post_url(post))
     end
   end
 
