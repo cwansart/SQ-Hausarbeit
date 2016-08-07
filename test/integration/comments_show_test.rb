@@ -8,9 +8,7 @@ class CommentsShowTest < ActionDispatch::IntegrationTest
   test "if the comment is displayed" do
     get "/comments/" + @comment.id.to_s
 
-    assert_select "p", @comment.author
-    assert_select "p", @comment.title
-    assert_select "p", @comment.body
+    assert_select "h1", @comment.title
   end
 
 end
