@@ -34,3 +34,7 @@ Feature: posts show
     When I browse "/posts" and click on "Destroy"
     Then I should see the text "Post was successfully destroyed."
 
+  Scenario: when delete a post
+    Given I created a post with a comment with title "CommTitle", author "CommAuthor" and body "CommBody"
+    When I browse "/posts/1" and click on "Destroy"
+    Then I should see the text "Comment was successfully destroyed."
