@@ -32,5 +32,5 @@ Feature: posts show
   Scenario: when delete a post
     Given I created a post with the title "Test", author "Testauthor" and body "Testbody"
     When I browse "/posts" and click on "Destroy"
-    Then I should see the text "Comment was successfully destroyed."
+    Then I should see the text "Post was successfully destroyed."
 
