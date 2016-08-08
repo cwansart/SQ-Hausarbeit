@@ -9,5 +9,8 @@ class PostsShowTest < ActionDispatch::IntegrationTest
     get "/posts/" + @post.id.to_s
 
     assert_select "h1", "Title: " + @post.title
+    assert_select "td", @post.body
+    assert_select "td", @post.author
+
   end
 end

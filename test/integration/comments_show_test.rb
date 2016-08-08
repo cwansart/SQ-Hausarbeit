@@ -9,6 +9,9 @@ class CommentsShowTest < ActionDispatch::IntegrationTest
     get "/comments/" + @comment.id.to_s
 
     assert_select "h1", @comment.title
+    assert_select "span", @comment.body
+    assert_select "span", @comment.author
+
   end
 
 end
